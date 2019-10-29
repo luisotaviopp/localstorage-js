@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>localstorage</title>
+	</head>
+	<body>
+		<div id="nome"></div>
+		<div id="idade"></div>
+
+		<form>
+			<br><input type="text" id="input-nome" autocomplete="off" required>
+			<br><input type="text" id="input-idade" autocomplete="off" required>
+			<br><button onclick="atualiza()">Dale</button>
+		</form>
+
+
+
+		<script type="text/javascript">
+
+			imprime();
+
+			var nome;
+			var idade;
+			var get_nome;
+			var get_idade;
+
+			function imprime () {
+				document.getElementById("nome").innerHTML =  localStorage.getItem('nome');
+				document.getElementById("idade").innerHTML = localStorage.getItem('idade');
+			}
+
+			function atualiza() {
+				//pega do form
+				get_nome = document.getElementById('input-nome').value;
+				get_idade = document.getElementById('input-idade').value;
+
+				//salva	na memória
+				localStorage.setItem('nome', get_nome);
+				localStorage.setItem('idade', get_idade);
+
+				imprime();		
+			}
+
+		</script>
+	</body>
+</html>
